@@ -1,0 +1,68 @@
+.alert {
+    position: relative;
+    display: inline-block;
+}
+
+.alert-primary {
+    margin-right: 20px;
+    width: 196px;
+    height: 220px;
+}
+
+.alert p{
+    max-height: 50%;
+    overflow-y: auto;
+    margin-bottom: 12px;
+}
+
+.alert h4{
+    margin-bottom: 0;
+}
+
+.form-add{
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+}
+
+.forms{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 3px;
+    text-align: center;
+    padding: 10px;
+}
+
+.forms form{
+    display: inline-block;
+}
+
+.forms form:first-child {
+  margin-right: 5%;
+}
+
+.btns button{
+    padding-right: 20px;
+    padding-left: 20px;
+    margin-right: 25px;
+}
+
+.del-btn form{
+    padding: 0% 0% 0 81%;
+}
+
+/* Scroll */
+
+ ::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: #7aa3df;
+}
+
+ ::-webkit-scrollbar {
+    width: 7px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #5781c0;
+}

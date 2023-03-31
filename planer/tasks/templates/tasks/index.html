@@ -1,0 +1,42 @@
+{% extends 'tasks/base.html' %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+
+{% if tasks %}
+<h4 class="display-4" align="center">Your tasks:</h4>
+<br>
+<div class="d-flex align-content-between justify-content-start flex-wrap">
+
+    {% for t in tasks %}
+
+    <div class="alert alert-primary">
+        <h4>{{ t.title }}</h4>
+        <p>{{ t.task | linebreaks }}</p>
+
+        <div class="forms">
+            <form method="post" action="{% url 'change_task' t.id %}" class="form-1">
+                {% csrf_token %}
+                <button class="btn btn-primary" type="submit">Change</button>
+            </form>
+
+            <form method="post" action="{% url 'delete_task' t.id %}" class="form-1">
+                {% csrf_token %}
+                <button class="btn btn-danger" type="submit">X</button>
+            </form>
+        </div>
+    </div>
+
+    {% endfor %}
+</div>
+
+{% else %}
+<div class="alert alert-warning">
+    <h4 class="display-4">You don't have any tasks!</h4>
+</div>
+{% endif %}
+
+{% endblock %}

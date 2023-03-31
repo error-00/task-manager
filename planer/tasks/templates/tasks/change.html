@@ -1,0 +1,35 @@
+{% extends 'tasks/base.html' %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+
+{% block content %}
+<h5 class="display-5" align="center">Change task:</h5>
+<form method="post">
+    {% csrf_token %}
+
+    <div class="form-add">
+        <br>
+        {{ form.title }}
+        <br>
+        {{ form.task }}
+        <br>
+        <div class="btns">
+            <button class="btn btn-primary" type="submit" style="padding-right: 20px; padding-left: 20px;">Save
+            </button>
+            <a href="{% url 'home' %}" class="btn btn-warning">Cancel</a>
+        </div>
+    </div>
+</form>
+
+<div class="del-btn">
+    <form method="post" action="{% url 'delete_task' task.id %}">
+        {% csrf_token %}
+        <button class="del btn btn-danger" type="submit">X</button>
+    </form>
+</div>
+
+
+{% endblock %}
