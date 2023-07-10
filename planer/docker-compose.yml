@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  django:
+    build: .
+    container_name: django
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/usr/src/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - sqlitedb
+
+  sqlitedb:
+    image: keinos/sqlite3
+    container_name: sqlitedb
+    volumes:
+      - sqlitedbdata:/var/lib/sqlite3/data
+
+volumes:
+  sqlitedbdata: null
